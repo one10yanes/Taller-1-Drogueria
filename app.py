@@ -40,8 +40,8 @@ def ejecutarOpcionMP(opcion):
                 print("==================== Drogueria La Principal ====================")
                 print("1.- Listar Clientes")
                 print("2.- Crear Clientes")
-                print("3.- Eliminar Clientes")
-                print("4.- Actualizar Clientes")
+                print("3.- Actualizar Clientes")
+                print("4.- Eliminar Clientes")
                 print("0.- Salir")
                 print("========================================================")
                 opcion = int(input("Seleccione una opción: "))
@@ -131,26 +131,19 @@ def subOpCliente(opcion):
         
         elif opcion == 3:
             try:
-                usuarios = dao.listarClientes()
-            
-                if len(usuarios) > 0:
-                    funciones.listarClientes(usuarios)
-                    usuario = funciones.eliminarClientes()
-                    print(usuarios)
-                    for usu in usuarios:
-                        print(usu[0])
-                        if(usuario == usu[0]):
-                            dao.eliminarClientes(usuario)
-                else:
-                    print ("No se Encontraron Usuarios")
+                cliente = funciones.actualizarClientes()
+                dao.actualizarClientes(cliente)
             except:
-                print("Ocurrió un error...")
-             
+                print("Error interno de la plataforma! ")
             
-            
-            
-            
-            
-            
+        elif opcion == 4:
+            try:
+                clientes = dao.listarClientes()
+                idCliente = int(input("Ingrese el id del cliente a eliminar... "))
+                if(clientes[0] == idCLiente):
+                    dao.eliminarClientes(idCliente)
+                    print("Cliente eliminado con exito!")
+            except:
+                print("El cliente no se encuentra en la base de datos...")       
                        
 menuPrincipal()

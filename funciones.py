@@ -13,5 +13,12 @@ def crearClientes():
     return datos
 
 def eliminarClientes():
-    idCl = input("Ingrese el ID del cliente a eliminar: ")
+    idCl = int(input("Ingrese el ID del cliente a eliminar: "))
     return idCl
+
+def actualizarClientes():
+    idCliente = int(input("Ingrese el id del cliente a modificar: "))
+    nomCl = input("Ingrese el nombre del Cliente a actualizar: ")
+    nroTel = input("Ingrese su numero Telefonico: ")
+    datos = (idCliente, nomCl, nroTel)
+    return datos
